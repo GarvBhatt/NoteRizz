@@ -1,5 +1,5 @@
 import React from "react";
-import StickyNote from "./Note";
+import Note from "./Note";
 
 const StickyNoteInfo = (props) => {
   const stickyNoteListStyle = {
@@ -29,7 +29,7 @@ const StickyNoteInfo = (props) => {
       <h2 className="text-center mb-4">Sticky Note Information</h2>
       <div style={stickyNoteListStyle}>
         {props.stickyNotes.map((stickyNote, index) => (
-          <StickyNote
+          <Note
             key={index}
             stickyNote={stickyNote}
             handleDelete={props.handleDelete}

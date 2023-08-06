@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import About from "./MyComponents/About";
 import Header from "./MyComponents/Header";
-import PetInfo from "./MyComponents/DisplayTheNotes";
+import DisplayTheNotes from "./MyComponents/DisplayTheNotes";
 import Footer from "./MyComponents/Footer";
-import AddPet from "./MyComponents/ADDNote";
+import ADDNote from "./MyComponents/ADDNote";
 
 function App() {
   let initStickyNotes = localStorage.getItem("stickyNotes")
@@ -27,6 +27,7 @@ function App() {
   };
   
   let [stickyNotes, setStickyNotes] = useState(initStickyNotes);
+
   useEffect(() => {
     localStorage.setItem("stickyNotes", JSON.stringify(stickyNotes));
   }, [stickyNotes]);
@@ -40,8 +41,8 @@ function App() {
             path="/"
             element={
               <>
-                <AddPet handleAddStickyNote={handleAddStickyNote} />
-                <PetInfo stickyNotes={stickyNotes} handleDelete={handleDelete} />
+                <ADDNote handleAddStickyNote={handleAddStickyNote} />
+                <DisplayTheNotes stickyNotes={stickyNotes} handleDelete={handleDelete} />
               </>
             }
           />
